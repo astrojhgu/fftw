@@ -1,33 +1,31 @@
-[package]
-name = "fftw"
-version = "0.7.0-alpha.0"
-authors = ["Toshiki Teramura <toshiki.teramura@gmail.com>"]
-edition = "2018"
-
-description = "safe wrapper of FFTW3"
-repository = "https://github.com/rust-math/fftw"
-keywords = ["fftw"]
-license-file = "../LICENSE.md"
-
-[features]
-default = ["source"]
-system = ["fftw-sys/system"]
-source = ["fftw-sys/source"]
-intel-mkl = ["fftw-sys/intel-mkl"]
-
 [dependencies]
-bitflags = "1.2.1"
-lazy_static = "1.4.0"
-ndarray = "0.13.1"
-num-complex = "0.3.0"
-num-traits = "0.2.12"
-thiserror = "1.0.20"
+bitflags = '1.2.1'
+lazy_static = '1.4.0'
+ndarray = '0.13.1'
+num-complex = '0.3.0'
+num-traits = '0.2.12'
+thiserror = '1.0.21'
 
 [dependencies.fftw-sys]
-path = "../fftw-sys"
-version = "0.6.0"
 default-features = false
+path = '../fftw-sys'
+version = '0.6.0'
 
+[features]
+default = ['source']
+intel-mkl = ['fftw-sys/intel-mkl']
+source = ['fftw-sys/source']
+system = ['fftw-sys/system']
+
+[package]
+authors = ['Toshiki Teramura <toshiki.teramura@gmail.com>']
+description = 'safe wrapper of FFTW3'
+edition = '2018'
+keywords = ['fftw']
+license-file = '../LICENSE.md'
+name = 'fftw'
+repository = 'https://github.com/rust-math/fftw'
+version = '0.7.0-alpha.0'
 [package.metadata.docs.rs]
+features = ['system']
 no-default-features = true
-features = ["system"]
